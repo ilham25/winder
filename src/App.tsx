@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import { Header } from "components/Header";
+import { Toolbar } from "components/Toolbar";
+import { RightSidebar } from "components/RightSidebar";
+import { InterfacePreview } from "components/InterfacePreview";
+import { LeftSidebar } from "components/LeftSidebar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-screen overflow-auto flex flex-col min-h-0">
+      <Header />
+      <div className="flex-grow overflow-hidden min-h-0 grid grid-cols-[3.5rem_250px_1fr_250px]">
+        <Toolbar />
+        <LeftSidebar />
+        <InterfacePreview />
+        <RightSidebar />
+      </div>
     </div>
   );
 }
