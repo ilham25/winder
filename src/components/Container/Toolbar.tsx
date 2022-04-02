@@ -8,7 +8,7 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
 const ToolbarContainer = ({ children, className, ...rest }: Props) => {
   return (
     <div
-      className={`flex-grow min-h-0 overflow-auto bg-white ${className}`}
+      className={`flex-grow min-h-0 overflow-y-auto overflow-x-visible bg-white ${className}`}
       {...rest}
     >
       {children}
