@@ -6,7 +6,7 @@ type Props = {};
 
 const InterfacePreview = (props: Props) => {
   return (
-    <InterfacePreviewContainer className="p-5 flex items-start overflow-auto">
+    <InterfacePreviewContainer className="p-5 flex justify-center overflow-auto">
       <Board />
     </InterfacePreviewContainer>
   );

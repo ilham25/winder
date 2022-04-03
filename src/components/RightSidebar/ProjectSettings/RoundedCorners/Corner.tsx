@@ -13,7 +13,7 @@ const Corner = ({ size = "base", active }: Props) => {
     >
       <div className="h-3 w-3 overflow-hidden">
         <div
-          className={`h-6 w-6 border-t-2 border-l-2 ${
+          className={`h-8 w-8 border-t-2 border-l-2 ${
             !active ? "border-slate-400" : "border-blue-400"
           } rounded${size === "base" ? "" : "-" + size}`}
         ></div>
