@@ -16,7 +16,7 @@ const ProjectInformation = (props: Props) => {
         <p className="text-xs text-slate-600 uppercase">Project 1</p>
       </div>
       <div className="flex items-center justify-center gap-2 grid-col-1 ">
-        <SizeButton screenSize="xl" active />
+        <SizeButton screenSize="xl" />
         <SizeButton screenSize="lg" />
         <SizeButton screenSize="md" />
         <SizeButton screenSize="sm" />

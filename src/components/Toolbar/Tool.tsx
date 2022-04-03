@@ -1,4 +1,4 @@
-import { toolbarIcons } from "constants/toolbar";
+import { toolbarIcons, toolbarTitles } from "constants/toolbar";
 import { setTool } from "features/toolbar";
 import { useAppDispatch, useAppSelector } from "hooks";
 import React, { useMemo } from "react";
@@ -29,14 +29,7 @@ const Tool = ({ type = "button", tool = "cursor", ...rest }: Props) => {
   }, [active]);
 
   const title = useMemo(() => {
-    const titles: { [key: string]: any } = {
-      cursor: "Pointer",
-      settings: "Settings",
-      layouts: "Layouts",
-      texts: "Typography",
-      regular: "Regular Components",
-    };
-    return titles[tool];
+    return toolbarTitles[tool];
   }, [tool]);
 
   return (

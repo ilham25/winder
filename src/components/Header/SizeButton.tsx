@@ -1,20 +1,21 @@
-import React from "react";
+import { setScreenSize } from "features/toolbar";
+import { useAppDispatch, useAppSelector } from "hooks";
+import React, { useMemo } from "react";
 import { ScreenSizeType } from "types/toolbar";
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   screenSize?: ScreenSizeType;
   type?: "button" | "submit" | "reset";
-  active?: boolean;
 }
 
-const SizeButton = ({
-  type = "button",
-  onClick = () => {},
-  screenSize = "xl",
-  active,
-  ...rest
-}: Props) => {
+const SizeButton = ({ type = "button", screenSize = "xl", ...rest }: Props) => {
+  const toolbar = useAppSelector((state) => state.toolbar);
+  const dispatch = useAppDispatch();
+
+  const active: boolean = useMemo(() => {
+    return toolbar.screenSize === screenSize;
+  }, [toolbar.screenSize, screenSize]);
+
   return (
     <button
       type={type}
@@ -23,7 +24,7 @@ const SizeButton = ({
           ? "text-slate-700 hover:bg-blue-400 hover:text-white"
           : "text-blue-400 font-medium hover:outline outline-blue-100"
       }`}
-      onClick={onClick}
+      onClick={() => dispatch(setScreenSize(screenSize))}
       {...rest}
     >
       {screenSize}

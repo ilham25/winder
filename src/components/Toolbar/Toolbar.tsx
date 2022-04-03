@@ -13,6 +13,7 @@ const Toolbar = (props: Props) => {
         <Tool tool="layouts" />
         <Tool tool="texts" />
         <Tool tool="regular" />
+        <Tool tool="prebuilt" />
       </div>
 
       <Tool tool="settings" />
