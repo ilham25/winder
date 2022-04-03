@@ -13,13 +13,13 @@ const PageHead = ({ onExpand = () => {}, onAdd = () => {}, expand }: Props) => {
       <p className="text-sm text-blue-400 font-medium">Pages</p>
       <div className="flex items-center gap-2">
         <button
-          className="flex items-center justify-center outline-blue-50 hover:bg-blue-400 hover:text-white rounded"
+          className="flex items-center justify-center outline-blue-200 hover:bg-blue-400 hover:text-white rounded"
           onClick={onAdd}
         >
           <BiPlus size={20} />
         </button>
         <button
-          className="flex items-center justify-center outline-blue-50 hover:bg-blue-400 hover:text-white rounded"
+          className="flex items-center justify-center outline-blue-200 hover:bg-blue-400 hover:text-white rounded"
           onClick={onExpand}
         >
           {expand && <BiChevronDown size={20} />}

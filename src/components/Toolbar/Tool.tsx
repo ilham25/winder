@@ -1,12 +1,6 @@
+import { toolbarIcons } from "constants/toolbar";
 import React, { useMemo } from "react";
 
-import {
-  BiGridAlt,
-  BiPointer,
-  BiSliderAlt,
-  BiText,
-  BiUnite,
-} from "react-icons/bi";
 import { ToolType } from "types/toolbar";
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
@@ -25,14 +19,7 @@ const Tool = ({
   ...rest
 }: Props) => {
   const ToolIcon = useMemo(() => {
-    const icons: { [key: string]: any } = {
-      cursor: BiPointer,
-      settings: BiSliderAlt,
-      layouts: BiGridAlt,
-      texts: BiText,
-      regular: BiUnite,
-    };
-    return icons[tool];
+    return toolbarIcons[tool];
   }, [tool]);
 
   const conditionalStyle = useMemo(() => {

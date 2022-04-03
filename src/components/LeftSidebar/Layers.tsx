@@ -6,12 +6,42 @@ type Props = {};
 
 const Layers = (props: Props) => {
   return (
-    <div>
+    <div className="flex-grow min-h-0 flex flex-col">
       <LayerHead />
-      <ul className="flex flex-col">
-        <LayerComponent title="Heading-1" />
-        <LayerComponent title="Heading-2" />
-        <LayerComponent title="Heading-3" />
+      <ul className="flex-grow min-h-0 overflow-auto">
+        <LayerComponent title="Landing">
+          <LayerComponent title="Group-1">
+            <LayerComponent title="Heading-1" componentType="texts" />
+            <LayerComponent title="Heading-1" componentType="texts" />
+            <LayerComponent title="Group-2">
+              <LayerComponent title="Heading-1" componentType="texts" />
+            </LayerComponent>
+          </LayerComponent>
+          <LayerComponent title="Heading-2" componentType="texts" />
+          <LayerComponent title="Heading-3" componentType="texts" />
+        </LayerComponent>
+        <LayerComponent title="Landing">
+          <LayerComponent title="Group-1">
+            <LayerComponent title="Heading-1" componentType="texts" />
+            <LayerComponent title="Heading-1" componentType="texts" />
+            <LayerComponent title="Group-2">
+              <LayerComponent title="Heading-1" componentType="texts" />
+            </LayerComponent>
+          </LayerComponent>
+          <LayerComponent title="Heading-2" componentType="texts" />
+          <LayerComponent title="Heading-3" componentType="texts" />
+        </LayerComponent>
+        <LayerComponent title="Landing">
+          <LayerComponent title="Group-1">
+            <LayerComponent title="Heading-1" componentType="texts" />
+            <LayerComponent title="Heading-1" componentType="texts" />
+            <LayerComponent title="Group-2">
+              <LayerComponent title="Heading-1" componentType="texts" />
+            </LayerComponent>
+          </LayerComponent>
+          <LayerComponent title="Heading-2" componentType="texts" />
+          <LayerComponent title="Heading-3" componentType="texts" />
+        </LayerComponent>
       </ul>
     </div>
   );

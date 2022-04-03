@@ -1,7 +1,6 @@
-import LeftSidebarContainer from "components/Container/LeftSidebar";
 import React from "react";
-import LayerComponent from "./LayerComponent";
-import LayerHead from "./LayerHead";
+
+import LeftSidebarContainer from "components/Container/LeftSidebar";
 import Layers from "./Layers";
 import Pages from "./Pages";
 
@@ -9,7 +8,7 @@ type Props = {};
 
 const LeftSidebar = (props: Props) => {
   return (
-    <LeftSidebarContainer>
+    <LeftSidebarContainer className="flex flex-col">
       <Pages />
       <Layers />
     </LeftSidebarContainer>

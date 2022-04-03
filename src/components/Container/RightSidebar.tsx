@@ -5,9 +5,11 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
   className?: string;
 }
 
-const RightSidebarContainer = ({ children }: Props) => {
+const RightSidebarContainer = ({ children, className }: Props) => {
   return (
-    <div className="flex flex-grow min-h-0 overflow-auto bg-white">
+    <div
+      className={`flex flex-grow min-h-0 overflow-auto bg-white ${className}`}
+    >
       {children}
     </div>
   );
