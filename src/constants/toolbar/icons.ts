@@ -1,14 +1,9 @@
-import {
-  BiGridAlt,
-  BiPointer,
-  BiSliderAlt,
-  BiText,
-  BiUnite,
-} from "react-icons/bi";
+import { BiGridAlt, BiPointer, BiText, BiUnite } from "react-icons/bi";
+import { IoSettingsOutline } from "react-icons/io5";
 
 const icons: { [key: string]: any } = {
   cursor: BiPointer,
-  settings: BiSliderAlt,
+  settings: IoSettingsOutline,
   layouts: BiGridAlt,
   texts: BiText,
   regular: BiUnite,

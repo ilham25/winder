@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ProjectSettingsHead from "./Head";
 import { PrimaryColor } from "./PrimaryColor";
+import { RoundedCorners } from "./RoundedCorners";
 
 type Props = {};
 
@@ -15,6 +16,7 @@ const ProjectSettingsComponent = (props: Props) => {
       {expand && (
         <ul className="pb-2">
           <PrimaryColor />
+          <RoundedCorners />
         </ul>
       )}
     </div>

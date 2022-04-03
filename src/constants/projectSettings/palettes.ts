@@ -1,4 +1,4 @@
-import { PrimaryColorPalette } from "types/toolbar";
+import { PrimaryColorPalette } from "types/projectSettings";
 
 const palettes: PrimaryColorPalette[] = [
   "red",
@@ -18,6 +18,7 @@ const palettes: PrimaryColorPalette[] = [
   "fuchsia",
   "pink",
   "rose",
+  "slate",
 ];
 
 export default palettes;

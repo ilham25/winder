@@ -1,9 +1,9 @@
-import { primaryColorPalettes } from "constants/toolbar";
+import { primaryColorPalettes } from "constants/projectSettings";
 import React, { useState } from "react";
-import { PrimaryColorLevel, PrimaryColorPalette } from "types/toolbar";
+import { PrimaryColorLevel, PrimaryColorPalette } from "types/projectSettings";
+import ProjectSettingsSubhead from "../Subhead";
 import Color from "./Color";
 import ColorList from "./ColorList";
-import PrimaryColorHead from "./Head";
 
 type Props = {};
 
@@ -17,9 +17,10 @@ const PrimaryColorComponent = (props: Props) => {
   ];
   return (
     <li>
-      <PrimaryColorHead
+      <ProjectSettingsSubhead
         expand={expand}
         onExpand={() => setExpand((prev) => !prev)}
+        title="Primary Color"
       />
       {expand && (
         <div className="pt-2 pb-4">

@@ -1,5 +1,5 @@
 import React from "react";
-import { PrimaryColorLevel, PrimaryColorPalette } from "types/toolbar";
+import { PrimaryColorLevel, PrimaryColorPalette } from "types/projectSettings";
 
 type Props = {
   palette?: PrimaryColorPalette;
