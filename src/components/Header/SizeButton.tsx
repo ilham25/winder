@@ -1,8 +1,9 @@
 import React from "react";
+import { ScreenSizeType } from "types/toolbar";
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  screenSize?: "xl" | "lg" | "md" | "sm" | "xs";
+  screenSize?: ScreenSizeType;
   type?: "button" | "submit" | "reset";
   active?: boolean;
 }

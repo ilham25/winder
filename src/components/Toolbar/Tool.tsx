@@ -1,23 +1,24 @@
 import { toolbarIcons } from "constants/toolbar";
+import { setTool } from "features/toolbar";
+import { useAppDispatch, useAppSelector } from "hooks";
 import React, { useMemo } from "react";
 
 import { ToolType } from "types/toolbar";
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   children?: React.ReactNode;
   type?: "button" | "submit" | "reset";
   tool?: ToolType;
-  active?: boolean;
 }
 
-const Tool = ({
-  onClick = () => {},
-  type = "button",
-  tool = "cursor",
-  active,
-  ...rest
-}: Props) => {
+const Tool = ({ type = "button", tool = "cursor", ...rest }: Props) => {
+  const toolbar = useAppSelector((state) => state.toolbar);
+
+  const active = useMemo(() => {
+    return toolbar.tool === tool;
+  }, [toolbar.tool, tool]);
+  const dispatch = useAppDispatch();
+
   const ToolIcon = useMemo(() => {
     return toolbarIcons[tool];
   }, [tool]);
@@ -43,7 +44,7 @@ const Tool = ({
       title={title}
       className={`h-14 w-14 flex items-center justify-center outline-blue-200 ${conditionalStyle}`}
       type={type}
-      onClick={onClick}
+      onClick={() => dispatch(setTool(tool))}
       {...rest}
     >
       <ToolIcon size={24} />
