@@ -1,4 +1,5 @@
 import { Listbox } from "@headlessui/react";
+import { LayoutTypes } from "constants/generalTool";
 import React from "react";
 
 type Props = {
@@ -20,7 +21,7 @@ const LayoutSelect = ({ onChange, value }: Props) => {
         <p className="text-xs capitalize">{value.toLowerCase()}</p>
       </Listbox.Button>
       <Listbox.Options className="dropdown-container text-slate-700 flex flex-col ">
-        {["FLEXBOX", "GRID"].map((type) => (
+        {LayoutTypes.map((type) => (
           <Listbox.Option key={type} value={type}>
             {({ selected, active }) => (
               <button

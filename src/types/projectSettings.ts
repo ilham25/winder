@@ -28,3 +28,11 @@ export type RoundedCornersSize =
   | "xl"
   | "2xl"
   | "3xl";
+export type LayoutType =
+  | "block"
+  | "inline-block"
+  | "inline"
+  | "flexbox"
+  | "inline-flex"
+  | "grid"
+  | "inline-grid";
