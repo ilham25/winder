@@ -9,7 +9,7 @@ type Props = {
 
 const SectionHeader = ({ onExpand = () => {}, expand, title }: Props) => {
   return (
-    <div className="flex justify-between h-10 bg-white items-center p-2">
+    <div className="flex justify-between h-10 bg-slate-50 items-center p-2">
       <p className="text-sm text-blue-400 font-medium">{title}</p>
       <div className="flex items-center gap-2">
         <button

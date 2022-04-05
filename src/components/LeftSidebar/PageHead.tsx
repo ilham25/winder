@@ -9,7 +9,7 @@ type Props = {
 
 const PageHead = ({ onExpand = () => {}, onAdd = () => {}, expand }: Props) => {
   return (
-    <div className="flex justify-between flex-grow h-10 bg-white items-center p-2">
+    <div className="flex justify-between flex-grow h-10 bg-slate-50 items-center p-2">
       <p className="text-sm text-blue-400 font-medium">Pages</p>
       <div className="flex items-center gap-2">
         <button
