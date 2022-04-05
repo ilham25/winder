@@ -16,7 +16,7 @@ type Props = {
 const Direction = ({ direction, type = "padding" }: Props) => {
   const { list: sizeList } = useTailwindSize({ type });
 
-  const [value, setValue] = useState<string>(sizeList[0]);
+  const [value, setValue] = useState<string>("0");
   const DirectionIcon = useMemo(() => {
     const icons = {
       top: BiUpArrowAlt,
@@ -49,8 +49,8 @@ const Direction = ({ direction, type = "padding" }: Props) => {
           <Listbox.Option key={size} value={size}>
             {({ selected, active }) => (
               <button
-                className={`bg-white flex p-2 w-full  hover:bg-blue-50 ${
-                  selected ? "bg-blue-100" : ""
+                className={`bg-white flex p-2 w-full   ${
+                  selected ? "bg-blue-100" : "hover:bg-blue-50"
                 } ${active ? "bg-blue-50" : ""}`}
               >
                 <p className=" text-xs"> {size}</p>

@@ -11,16 +11,16 @@ const MarginToolComponent = (props: Props) => {
     <div>
       <ToolName title="Margin" subTool />
       <div className="grid grid-cols-7 gap-1 px-2">
-        <TwoDirection direction="vertical" disabled={expand} />
-        <TwoDirection direction="horizontal" disabled={expand} />
+        <TwoDirection direction="vertical" disabled={expand} type="margin" />
+        <TwoDirection direction="horizontal" disabled={expand} type="margin" />
         <Expand onExpand={() => setExpand((prev) => !prev)} />
       </div>
       {expand && (
         <div className="grid grid-cols-4 gap-1 px-2 mt-1">
-          <Direction direction="left" />
-          <Direction direction="right" />
-          <Direction direction="top" />
-          <Direction direction="bottom" />
+          <Direction direction="left" type="margin" />
+          <Direction direction="right" type="margin" />
+          <Direction direction="top" type="margin" />
+          <Direction direction="bottom" type="margin" />
         </div>
       )}
     </div>
