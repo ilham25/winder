@@ -1,6 +1,6 @@
+import SectionSubheader from "components/RightSidebar/Subhead";
 import { cornerList } from "constants/projectSettings";
 import React, { useState } from "react";
-import ProjectSettingsSubhead from "../Subhead";
 import Corner from "./Corner";
 
 type Props = {};
@@ -10,7 +10,7 @@ const RoundedCornersComponent = (props: Props) => {
 
   return (
     <li>
-      <ProjectSettingsSubhead
+      <SectionSubheader
         title="Rounded Corners"
         expand={expand}
         onExpand={() => setExpand((prev) => !prev)}

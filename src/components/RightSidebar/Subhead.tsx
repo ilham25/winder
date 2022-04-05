@@ -7,7 +7,7 @@ type Props = {
   title?: string;
 };
 
-const ProjectSettingsSubhead = ({
+const SectionSubheader = ({
   onExpand = () => {},
   expand,
   title = "",
@@ -26,4 +26,4 @@ const ProjectSettingsSubhead = ({
   );
 };
 
-export default ProjectSettingsSubhead;
+export default SectionSubheader;

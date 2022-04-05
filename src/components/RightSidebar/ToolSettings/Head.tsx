@@ -6,7 +6,7 @@ type Props = {
   expand?: boolean;
 };
 
-const ProjectSettingsHead = ({ onExpand = () => {}, expand }: Props) => {
+const ToolSettingsHead = ({ onExpand = () => {}, expand }: Props) => {
   return (
     <div className="flex justify-between h-10 bg-white items-center p-2">
       <p className="text-sm text-blue-400 font-medium">Project Settings</p>
@@ -23,4 +23,4 @@ const ProjectSettingsHead = ({ onExpand = () => {}, expand }: Props) => {
   );
 };
 
-export default ProjectSettingsHead;
+export default ToolSettingsHead;

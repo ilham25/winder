@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import ProjectSettingsHead from "./Head";
+
+import SectionHeader from "../Head";
 import { PrimaryColor } from "./PrimaryColor";
 import { RoundedCorners } from "./RoundedCorners";
 
@@ -9,9 +10,10 @@ const ProjectSettingsComponent = (props: Props) => {
   const [expand, setExpand] = useState<boolean>(false);
   return (
     <div className="border-b border-b-slate-200">
-      <ProjectSettingsHead
+      <SectionHeader
         onExpand={() => setExpand((prev) => !prev)}
         expand={expand}
+        title="Project Settings"
       />
       {expand && (
         <ul className="pb-2">
