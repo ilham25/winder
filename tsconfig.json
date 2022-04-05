@@ -29,6 +29,7 @@
     "routes",
     "src",
     "types",
-    "utils"
+    "utils",
+    "styles"
   ]
 }

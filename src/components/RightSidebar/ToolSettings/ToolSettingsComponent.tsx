@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import SectionHeader from "../Head";
-import { MarginTool, PaddingTool } from "./GeneralTool";
+import SpacingToolComponent from "./GeneralTool/Spacing/SpacingToolComponent";
 import { LayoutTool } from "./LayoutTool";
 
 type Props = {};
@@ -18,8 +18,7 @@ const ToolSettingsComponent = (props: Props) => {
       {expand && (
         <div className="pb-2">
           <LayoutTool />
-          <MarginTool />
-          <PaddingTool />
+          <SpacingToolComponent />
         </div>
       )}
     </div>

@@ -1,4 +1,6 @@
-import React, { useMemo } from "react";
+import { Listbox } from "@headlessui/react";
+import { useTailwindSize } from "hooks";
+import React, { useMemo, useState } from "react";
 import {
   BiDownArrowAlt,
   BiLeftArrowAlt,
@@ -8,9 +10,13 @@ import {
 
 type Props = {
   direction: "top" | "bottom" | "right" | "left";
+  type?: "margin" | "padding";
 };
 
-const Direction = ({ direction }: Props) => {
+const Direction = ({ direction, type = "padding" }: Props) => {
+  const { list: sizeList } = useTailwindSize({ type });
+
+  const [value, setValue] = useState<string>(sizeList[0]);
   const DirectionIcon = useMemo(() => {
     const icons = {
       top: BiUpArrowAlt,
@@ -22,14 +28,38 @@ const Direction = ({ direction }: Props) => {
   }, [direction]);
 
   return (
-    <div className="col-span-1 h-8 rounded border border-slate-200 overflow-hidden flex items-center gap-1 text-slate-700 px-1">
-      <div className="h-8 w-6 flex items-center justify-center rounded text-slate-500">
-        <DirectionIcon size={16} />
-      </div>
-      <div>
-        <input type="number" className="w-full bg-white outline-none text-xs" />
-      </div>
-    </div>
+    <Listbox
+      as="div"
+      className={`relative col-span-1 h-8 rounded border border-slate-200 text-slate-700 hover:bg-slate-50 `}
+      value={value}
+      onChange={setValue}
+    >
+      <Listbox.Button
+        className={`w-full flex items-center gap-1  px-1  outline-blue-200 `}
+      >
+        <div className="h-8 w-6 flex items-center justify-center rounded text-slate-500 mr-1">
+          <DirectionIcon size={16} />
+        </div>
+        <div className="w-full">
+          <p className="text-xs">{value}</p>
+        </div>
+      </Listbox.Button>
+      <Listbox.Options className="dropdown-container text-slate-700 flex flex-col ">
+        {sizeList.map((size) => (
+          <Listbox.Option key={size} value={size}>
+            {({ selected, active }) => (
+              <button
+                className={`bg-white flex p-2 w-full  hover:bg-blue-50 ${
+                  selected ? "bg-blue-100" : ""
+                } ${active ? "bg-blue-50" : ""}`}
+              >
+                <p className=" text-xs"> {size}</p>
+              </button>
+            )}
+          </Listbox.Option>
+        ))}
+      </Listbox.Options>
+    </Listbox>
   );
 };
 

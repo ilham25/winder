@@ -9,7 +9,7 @@ const MarginToolComponent = (props: Props) => {
   const [expand, setExpand] = useState<boolean>(false);
   return (
     <div>
-      <ToolName title="Margin" />
+      <ToolName title="Margin" subTool />
       <div className="grid grid-cols-7 gap-1 px-2">
         <TwoDirection direction="vertical" disabled={expand} />
         <TwoDirection direction="horizontal" disabled={expand} />

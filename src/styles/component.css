@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .dropdown-container {
+    @apply absolute top-full left-0 right-0 mt-1 bg-white z-10 max-h-32 overflow-auto rounded border border-slate-200 shadow-md outline-none;
+  }
+}
