@@ -1,7 +1,8 @@
 import SectionSubheader from "components/RightSidebar/Subhead";
+
 import React, { useState } from "react";
-import { MarginTool, PaddingTool } from "..";
-import ToolName from "../../ToolName";
+import PaddingTool from "./Padding/PaddingToolComponent";
+import MarginTool from "./Margin/MarginToolComponent";
 
 type Props = {};
 

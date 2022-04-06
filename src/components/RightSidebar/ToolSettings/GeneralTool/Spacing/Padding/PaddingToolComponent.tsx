@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
-import ToolName from "../../ToolName";
-import { Direction, Expand, TwoDirection } from "../Spacing";
-
+import ToolName from "components/RightSidebar/ToolSettings/ToolName";
+import {
+  Direction,
+  Expand,
+  TwoDirection,
+} from "components/RightSidebar/ToolSettings/GeneralTool/Spacing";
 type Props = {};
 
 const PaddingToolComponent = (props: Props) => {

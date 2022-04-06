@@ -1,5 +1,5 @@
 import React from "react";
-import { BiChevronDown, BiChevronRight, BiChevronUp } from "react-icons/bi";
+import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
 type Props = {
   onExpand?: () => any;

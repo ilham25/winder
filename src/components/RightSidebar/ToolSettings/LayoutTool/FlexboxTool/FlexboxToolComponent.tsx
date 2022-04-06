@@ -1,5 +1,5 @@
 import React from "react";
-import ToolName from "../../ToolName";
+
 import FlexDirection from "./FlexDirection";
 
 type Props = {};

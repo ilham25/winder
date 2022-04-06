@@ -1,11 +1,12 @@
+import React, { useCallback, useState } from "react";
+
 import SectionSubheader from "components/RightSidebar/Subhead";
-import { LayoutType } from "types/projectSettings";
-import { toolbarTitles } from "constants/toolbar";
-import React, { useCallback, useMemo, useState } from "react";
-import ToolName from "../ToolName";
 import LayoutSelect from "./LayoutSelect";
 import { FlexboxTool } from "./FlexboxTool";
 import { GridTool } from "./GridTool";
+
+import { LayoutType } from "types/projectSettings";
+import { toolbarTitles } from "constants/toolbar";
 
 type Props = {};
 
