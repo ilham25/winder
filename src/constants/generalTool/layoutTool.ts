@@ -13,6 +13,6 @@ export const LayoutTypes: LayoutType[] = [
 
 export const LayoutComponentDefault: ComponentType = {
   as: "div",
-  className: "h-32 w-32 bg-slate-200",
+  className: "h-10 w-full bg-slate-200",
   group: "layouts",
 };

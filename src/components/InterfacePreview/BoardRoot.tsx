@@ -50,9 +50,11 @@ const BoardRoot = ({ children, group = "root" }: Props) => {
     dispatch(setTool("cursor"));
   };
 
+  // outline outline-transparent hover:outline-1 hover:outline-blue-400
+
   return (
     <div
-      className={`w-[1440px] min-h-[1024px] h-max bg-white scale-90 rounded-lg p-px outline outline-transparent hover:outline-1 hover:outline-blue-400 ${
+      className={`w-[1440px] min-h-[1024px] h-max bg-white scale-90 overflow-hidden rounded-lg p-px  ${
         isUsingTool ? "cursor-crosshair" : "cursor-default"
       }`}
       onClick={onComponentAdd}
