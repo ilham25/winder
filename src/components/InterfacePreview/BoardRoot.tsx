@@ -54,7 +54,7 @@ const BoardRoot = ({ children, group = "root" }: Props) => {
 
   return (
     <div
-      className={`w-[1440px] min-h-[1024px] h-max bg-white scale-90 overflow-hidden rounded-lg p-px  ${
+      className={`w-[1440px] min-h-[1024px] h-max bg-white scale-90 overflow-hidden rounded-lg  ${
         isUsingTool ? "cursor-crosshair" : "cursor-default"
       }`}
       onClick={onComponentAdd}
