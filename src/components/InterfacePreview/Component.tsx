@@ -1,8 +1,9 @@
 import React, { useCallback, useState, useMemo, useEffect } from "react";
 
-import { useAppSelector } from "hooks";
+import { useAppDispatch, useAppSelector } from "hooks";
 
 import { ComponentType } from "types/toolSettings";
+import { setSelectedComponentId } from "features/components";
 
 interface Props extends ComponentType {
   id: string;
@@ -18,6 +19,8 @@ const Component = ({
   const CustomTag = `${as}` as keyof JSX.IntrinsicElements;
 
   const components = useAppSelector((state) => state.components);
+
+  const dispatch = useAppDispatch();
 
   const [child, setChild] = useState<string[]>([]);
 
@@ -37,6 +40,14 @@ const Component = ({
     return !!components.data[id].content;
   }, [components, id]);
 
+  const onComponentClick = () => {
+    dispatch(setSelectedComponentId(id));
+  };
+
+  const isSelected = useMemo(() => {
+    return id === components.selectedId;
+  }, [components.selectedId, id]);
+
   useEffect(() => {
     fetchChild();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -44,9 +55,12 @@ const Component = ({
 
   return (
     <CustomTag
-      className={`outline outline-transparent hover:outline-1 hover:outline-blue-400 ${className}`}
+      className={`outline outline-transparent hover:outline-1 hover:outline-blue-400 ${
+        isSelected ? "outline-1 outline-blue-400" : ""
+      } ${className}`}
       id={id}
       {...rest}
+      onClick={onComponentClick}
     >
       {isText && components.data[id].content}
       {hasChildren && !isText && (

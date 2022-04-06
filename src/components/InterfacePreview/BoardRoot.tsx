@@ -1,4 +1,7 @@
-import { createLayoutComponent } from "features/components";
+import {
+  createLayoutComponent,
+  setSelectedComponentId,
+} from "features/components";
 import { setTool } from "features/toolbar";
 import { useAppDispatch, useAppSelector } from "hooks";
 import React, { useMemo } from "react";
@@ -31,7 +34,6 @@ const BoardRoot = ({ children, group = "root" }: Props) => {
   };
 
   const onComponentAdd = (e: any) => {
-    if (!isUsingTool) return;
     const target: {
       getAttribute?: (qualifiedString: string) => ToolType | "root";
     } = e.target;
@@ -45,6 +47,9 @@ const BoardRoot = ({ children, group = "root" }: Props) => {
         break;
 
       default:
+        if (targetGroup === "root") {
+          dispatch(setSelectedComponentId(""));
+        }
         break;
     }
     dispatch(setTool("cursor"));

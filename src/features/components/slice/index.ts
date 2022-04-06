@@ -15,6 +15,9 @@ const componentsSlice = createSlice({
   name: "components",
   initialState,
   reducers: {
+    setSelectedComponentId: (state, action: PayloadAction<string>) => {
+      state.selectedId = action.payload;
+    },
     createLayoutComponent: (
       state,
       action: PayloadAction<CreateLayoutComponentPayload>
@@ -27,5 +30,6 @@ const componentsSlice = createSlice({
   },
 });
 
-export const { createLayoutComponent } = componentsSlice.actions;
+export const { createLayoutComponent, setSelectedComponentId } =
+  componentsSlice.actions;
 export const componentsReducer = componentsSlice.reducer;

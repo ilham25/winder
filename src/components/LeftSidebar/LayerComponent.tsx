@@ -1,5 +1,6 @@
 import { toolbarIcons } from "constants/toolbar";
-import { useAppSelector } from "hooks";
+import { setSelectedComponentId } from "features/components";
+import { useAppDispatch, useAppSelector } from "hooks";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { ToolType } from "types/toolbar";
@@ -16,6 +17,7 @@ const LayerComponent = ({
   group = "regular",
 }: Props) => {
   const components = useAppSelector((state) => state.components);
+  const dispatch = useAppDispatch();
 
   const [expand, setExpand] = useState<boolean>(false);
 
@@ -38,6 +40,14 @@ const LayerComponent = ({
     return toolbarIcons[group];
   }, [group]);
 
+  const isSelected = useMemo(() => {
+    return id === components.selectedId;
+  }, [components.selectedId, id]);
+
+  const onComponentClick = () => {
+    dispatch(setSelectedComponentId(id));
+  };
+
   useEffect(() => {
     fetchChild();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -45,11 +55,26 @@ const LayerComponent = ({
 
   return (
     <li className="">
-      <div className="group flex flex-grow h-10 bg-white hover:bg-blue-400 hover:text-white cursor-pointer items-center p-2 text-slate-700">
-        <button className="flex flex-grow items-center outline-none gap-1 text-xs capitalize">
+      <div
+        className={`group flex flex-grow h-10 cursor-pointer items-center p-2
+      ${
+        isSelected
+          ? "bg-blue-400 text-white"
+          : "bg-white hover:bg-blue-400 hover:text-white text-slate-700"
+      }
+      `}
+      >
+        <button
+          className="flex flex-grow items-center outline-none gap-1 text-xs capitalize"
+          onClick={onComponentClick}
+        >
           <ComponentIcon
             size={18}
-            className="bg-blue-400 rounded p-0.5 text-white group-hover:bg-white group-hover:text-blue-400"
+            className={`rounded p-0.5 ${
+              isSelected
+                ? "bg-white text-blue-400"
+                : "bg-blue-400 text-white group-hover:bg-white group-hover:text-blue-400 "
+            }`}
           />
           {title.toLowerCase()}
         </button>
