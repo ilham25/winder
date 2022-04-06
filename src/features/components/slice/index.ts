@@ -6,7 +6,10 @@ import {
   CreateLayoutComponentPayload,
 } from "types/toolSettings";
 
-const initialState: ComponentsState = {};
+const initialState: ComponentsState = {
+  data: {},
+  selectedId: "",
+};
 
 const componentsSlice = createSlice({
   name: "components",
@@ -16,7 +19,7 @@ const componentsSlice = createSlice({
       state,
       action: PayloadAction<CreateLayoutComponentPayload>
     ) => {
-      state[action.payload.id] = {
+      state.data[action.payload.id] = {
         ...LayoutComponentDefault,
         parentId: action.payload.parentId,
       };

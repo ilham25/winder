@@ -12,7 +12,8 @@ export type ComponentType = {
 };
 
 export type ComponentsState = {
-  [key: string]: ComponentType;
+  data: { [key: string]: ComponentType };
+  selectedId: string;
 };
 
 export type CreateLayoutComponentPayload = {

@@ -16,7 +16,9 @@ const Board = (props: Props) => {
   }, []);
 
   const parentComponents = useMemo(() => {
-    return Object.keys(components).filter((key) => !components[key].parentId);
+    return Object.keys(components.data).filter(
+      (key) => !components.data[key].parentId
+    );
   }, [components]);
 
   return (
@@ -24,8 +26,8 @@ const Board = (props: Props) => {
       {parentComponents.map((key) => (
         <Component
           key={key}
-          as={components[key].as}
-          {...components[key]}
+          as={components.data[key].as}
+          {...components.data[key]}
           id={key}
         />
       ))}

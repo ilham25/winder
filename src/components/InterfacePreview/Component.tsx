@@ -22,8 +22,8 @@ const Component = ({
   const [child, setChild] = useState<string[]>([]);
 
   const fetchChild = useCallback(() => {
-    const childs = Object.keys(components).filter(
-      (key) => components[key].parentId === id
+    const childs = Object.keys(components.data).filter(
+      (key) => components.data[key].parentId === id
     );
 
     setChild(childs);
@@ -34,7 +34,7 @@ const Component = ({
   }, [child]);
 
   const isText: boolean = useMemo(() => {
-    return !!components[id].content;
+    return !!components.data[id].content;
   }, [components, id]);
 
   useEffect(() => {
@@ -48,14 +48,14 @@ const Component = ({
       id={id}
       {...rest}
     >
-      {isText && components[id].content}
+      {isText && components.data[id].content}
       {hasChildren && !isText && (
         <>
           {child.map((key) => (
             <Component
               key={key}
-              as={components[key].as}
-              {...components[key]}
+              as={components.data[key].as}
+              {...components.data[key]}
               id={key}
             />
           ))}

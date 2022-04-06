@@ -9,7 +9,9 @@ const Layers = (props: Props) => {
   const components = useAppSelector((state) => state.components);
 
   const parentComponents = useMemo(() => {
-    return Object.keys(components).filter((key) => !components[key].parentId);
+    return Object.keys(components.data).filter(
+      (key) => !components.data[key].parentId
+    );
   }, [components]);
 
   return (
@@ -20,8 +22,8 @@ const Layers = (props: Props) => {
           <LayerComponent
             key={key}
             id={key}
-            group={components[key].group}
-            title={components[key].group}
+            group={components.data[key].group}
+            title={components.data[key].group}
           />
         ))}
       </ul>

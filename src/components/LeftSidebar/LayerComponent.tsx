@@ -22,13 +22,13 @@ const LayerComponent = ({
   const [child, setChild] = useState<string[]>([]);
 
   const fetchChild = useCallback(() => {
-    const childs = Object.keys(components).filter(
-      (key) => components[key].parentId === id
+    const childs = Object.keys(components.data).filter(
+      (key) => components.data[key].parentId === id
     );
 
     setChild(childs);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [components]);
+  }, [components.data]);
 
   const hasChildren: boolean = useMemo(() => {
     return child.length > 0;
@@ -68,8 +68,8 @@ const LayerComponent = ({
             <LayerComponent
               key={key}
               id={key}
-              group={components[key].group}
-              title={components[key].group}
+              group={components.data[key].group}
+              title={components.data[key].group}
             />
           ))}
         </ul>
