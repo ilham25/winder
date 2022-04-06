@@ -1,5 +1,4 @@
 import { Listbox } from "@headlessui/react";
-import { LayoutTypes } from "constants/generalTool";
 import React, { useMemo } from "react";
 
 type Data = {
@@ -16,6 +15,7 @@ type Props = {
 const Select = ({ onChange, value, dataSource = [] }: Props) => {
   const displayValue: Data = useMemo(() => {
     return dataSource.find((item) => item.value === value);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
   return (
     <Listbox

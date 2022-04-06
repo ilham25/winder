@@ -27,6 +27,7 @@ const LayerComponent = ({
     );
 
     setChild(childs);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [components]);
 
   const hasChildren: boolean = useMemo(() => {
@@ -39,6 +40,7 @@ const LayerComponent = ({
 
   useEffect(() => {
     fetchChild();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [components]);
 
   return (

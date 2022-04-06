@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 
-import ToolName from "components/RightSidebar/ToolSettings/ToolName";
 import SizeInput from "./SizeInput";
 
 type Props = {};

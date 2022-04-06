@@ -1,7 +1,7 @@
+import React, { useCallback, useState, useMemo, useEffect } from "react";
+
 import { useAppSelector } from "hooks";
-import React, { useCallback, useState } from "react";
-import { useMemo } from "react";
-import { useEffect } from "react";
+
 import { ComponentType } from "types/toolSettings";
 
 interface Props extends ComponentType {
@@ -27,7 +27,7 @@ const Component = ({
     );
 
     setChild(childs);
-  }, [components]);
+  }, [components, id]);
 
   const hasChildren: boolean = useMemo(() => {
     return child.length > 0;
@@ -35,10 +35,11 @@ const Component = ({
 
   const isText: boolean = useMemo(() => {
     return !!components[id].content;
-  }, [components[id]]);
+  }, [components, id]);
 
   useEffect(() => {
     fetchChild();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [components]);
 
   return (
