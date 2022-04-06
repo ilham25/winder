@@ -1,13 +1,22 @@
 import { Listbox } from "@headlessui/react";
 import { LayoutTypes } from "constants/generalTool";
-import React from "react";
+import React, { useMemo } from "react";
+
+type Data = {
+  value: any;
+  display: string;
+};
 
 type Props = {
   onChange: any;
-  value: any;
+  value: string;
+  dataSource: Data[];
 };
 
-const LayoutSelect = ({ onChange, value }: Props) => {
+const Select = ({ onChange, value, dataSource = [] }: Props) => {
+  const displayValue: Data = useMemo(() => {
+    return dataSource.find((item) => item.value === value);
+  }, [value]);
   return (
     <Listbox
       as="div"
@@ -18,18 +27,18 @@ const LayoutSelect = ({ onChange, value }: Props) => {
       <Listbox.Button
         className={`w-full flex items-center px-2 h-full  outline-blue-200 `}
       >
-        <p className="text-xs capitalize">{value.toLowerCase()}</p>
+        <p className="text-xs">{displayValue.display}</p>
       </Listbox.Button>
       <Listbox.Options className="dropdown-container text-slate-700 flex flex-col ">
-        {LayoutTypes.map((type) => (
-          <Listbox.Option key={type} value={type}>
+        {dataSource.map((data) => (
+          <Listbox.Option key={data.value} value={data.value}>
             {({ selected, active }) => (
               <button
                 className={`bg-white flex p-2 w-full   ${
                   selected ? "bg-blue-100" : "hover:bg-blue-50"
                 } ${active ? "bg-blue-50" : ""}`}
               >
-                <p className="text-xs capitalize">{type.toLowerCase()}</p>
+                <p className="text-xs">{data.display}</p>
               </button>
             )}
           </Listbox.Option>
@@ -39,4 +48,4 @@ const LayoutSelect = ({ onChange, value }: Props) => {
   );
 };
 
-export default LayoutSelect;
+export default Select;

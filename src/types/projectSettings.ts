@@ -36,3 +36,4 @@ export type LayoutType =
   | "inline-flex"
   | "grid"
   | "inline-grid";
+export type FlexDirectionType = "row" | "col" | "row-reverse" | "col-reverse";
