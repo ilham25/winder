@@ -1,4 +1,5 @@
 import { createLayoutComponent } from "features/components";
+import { setTool } from "features/toolbar";
 import { useAppDispatch, useAppSelector } from "hooks";
 import React, { useMemo } from "react";
 import { ToolType } from "types/toolbar";
@@ -16,24 +17,37 @@ const BoardRoot = ({ children, group = "root" }: Props) => {
   const isUsingTool: boolean = useMemo(() => {
     return toolbar.tool !== "cursor";
   }, [toolbar.tool]);
+
+  const createLayoutHandler = ({
+    targetGroup,
+    targetId,
+  }: {
+    targetGroup: ToolType | "root";
+    targetId: string;
+  }) => {
+    if (["root", "layouts"].includes(targetGroup.toLowerCase())) {
+      dispatch(createLayoutComponent({ id: uuidv4(), parentId: targetId }));
+    }
+  };
+
   const onComponentAdd = (e: any) => {
     if (!isUsingTool) return;
     const target: {
       getAttribute?: (qualifiedString: string) => ToolType | "root";
     } = e.target;
 
-    const group = target.getAttribute("group");
+    const targetGroup = target.getAttribute("group");
     const targetId = target.getAttribute("id");
 
-    switch (group) {
-      case "root":
+    switch (toolbar.tool) {
       case "layouts":
-        dispatch(createLayoutComponent({ id: uuidv4(), parentId: targetId }));
+        createLayoutHandler({ targetGroup, targetId });
         break;
 
       default:
         break;
     }
+    dispatch(setTool("cursor"));
   };
 
   return (
