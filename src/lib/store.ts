@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { componentsReducer } from "features/components";
 import { toolbarReducer } from "features/toolbar";
 
 export const store = configureStore({
   reducer: {
     toolbar: toolbarReducer,
+    components: componentsReducer,
   },
 });
 

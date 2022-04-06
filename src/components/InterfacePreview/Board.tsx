@@ -1,28 +1,35 @@
-import React, { useEffect } from "react";
-import { getTailwindSizing } from "utils/helper";
+import React, { useEffect, useMemo } from "react";
+
 import Component from "./Component";
+
+import { useAppSelector } from "hooks";
+import { getTailwindSizing } from "utils/helper";
+import BoardRoot from "./BoardRoot";
 
 type Props = {};
 
-type ComponentType = {
-  as: keyof JSX.IntrinsicElements;
-  className?: string;
-};
-
 const Board = (props: Props) => {
+  const components = useAppSelector((state) => state.components);
+
   useEffect(() => {
     getTailwindSizing();
   }, []);
+
+  const parentComponents = useMemo(() => {
+    return Object.keys(components).filter((key) => !components[key].parentId);
+  }, [components]);
+
   return (
-    <div className="w-[1440px] min-h-[1024px] bg-white scale-90 rounded-lg overflow-hidden p-px">
-      {/* {Object.keys(exampleComponents).map((key) => (
+    <BoardRoot>
+      {parentComponents.map((key) => (
         <Component
           key={key}
-          as={exampleComponents[key].as}
-          {...exampleComponents[key]}
+          as={components[key].as}
+          {...components[key]}
+          id={key}
         />
-      ))} */}
-    </div>
+      ))}
+    </BoardRoot>
   );
 };
 

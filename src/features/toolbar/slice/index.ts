@@ -8,7 +8,7 @@ const initialState: ToolbarState = {
 };
 
 const toolbarSlice = createSlice({
-  name: "toast",
+  name: "toolbar",
   initialState,
   reducers: {
     setTool: (state, action: PayloadAction<ToolType>) => {
