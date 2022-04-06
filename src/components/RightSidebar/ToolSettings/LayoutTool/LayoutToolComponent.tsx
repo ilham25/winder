@@ -37,7 +37,6 @@ const LayoutToolComponent = (props: Props) => {
       />
       {expand && (
         <div>
-          <ToolName title="Layout type" subTool />
           <LayoutSelect value={layoutType} onChange={setLayoutType} />
           <DisplayedTool />
         </div>

@@ -20,7 +20,7 @@ const Select = ({ onChange, value, dataSource = [] }: Props) => {
   return (
     <Listbox
       as="div"
-      className={`relative w-full h-8 rounded border border-slate-200 text-slate-700 hover:bg-slate-50 mt-1 mx-2`}
+      className={`relative w-full h-8 rounded border border-slate-200 text-slate-700 hover:bg-slate-50 mt-1`}
       value={value}
       onChange={onChange}
     >

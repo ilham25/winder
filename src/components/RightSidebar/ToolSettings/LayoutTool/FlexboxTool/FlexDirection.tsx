@@ -32,11 +32,13 @@ const FlexDirection = (props: Props) => {
   return (
     <div>
       <ToolName title="Flex Direction" subTool />
-      <Select
-        value={flexDirection}
-        onChange={setFlexDirection}
-        dataSource={directions}
-      />
+      <div className="px-2">
+        <Select
+          value={flexDirection}
+          onChange={setFlexDirection}
+          dataSource={directions}
+        />
+      </div>
     </div>
   );
 };
