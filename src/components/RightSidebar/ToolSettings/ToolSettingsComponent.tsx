@@ -10,6 +10,7 @@ type Props = {};
 
 const ToolSettingsComponent = (props: Props) => {
   const [expand, setExpand] = useState<boolean>(true);
+
   return (
     <div className="border-b border-b-slate-200">
       <SectionHeader

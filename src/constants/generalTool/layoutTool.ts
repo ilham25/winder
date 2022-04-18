@@ -15,4 +15,8 @@ export const LayoutComponentDefault: ComponentType = {
   as: "div",
   className: "h-32 w-full bg-slate-200",
   group: "layouts",
+  properties: {
+    height: 32,
+    width: "full",
+  },
 };

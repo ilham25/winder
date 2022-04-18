@@ -56,7 +56,7 @@ const LayerComponent = ({
   return (
     <li className="">
       <div
-        className={`group flex flex-grow h-10 cursor-pointer items-center p-2
+        className={`group flex flex-grow h-10 cursor-pointer items-center pr-2
       ${
         isSelected
           ? "bg-blue-400 text-white"
@@ -65,7 +65,7 @@ const LayerComponent = ({
       `}
       >
         <button
-          className="flex flex-grow items-center outline-none gap-1 text-xs capitalize"
+          className="flex flex-grow items-center outline-none gap-1 text-xs capitalize pl-2 py-2"
           onClick={onComponentClick}
         >
           <ComponentIcon

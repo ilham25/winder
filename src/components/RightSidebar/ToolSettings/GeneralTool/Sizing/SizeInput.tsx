@@ -7,22 +7,26 @@ import { useTailwindSize } from "hooks";
 
 type Props = {
   disabled?: boolean;
-  direction: "vertical" | "horizontal";
   type?: "height" | "width";
+  value: string | number;
+  onChange?: () => any;
 };
 
-const SizeInput = ({ disabled, direction, type = "height" }: Props) => {
+const SizeInput = ({
+  disabled,
+  type = "height",
+  value = "0",
+  onChange = () => {},
+}: Props) => {
   const { list: sizeList } = useTailwindSize({ type });
-
-  const [value, setValue] = useState<string>("auto");
 
   const DirectionIcon = useMemo(() => {
     const icons = {
-      vertical: BiMoveVertical,
-      horizontal: BiMoveHorizontal,
+      height: BiMoveVertical,
+      width: BiMoveHorizontal,
     };
-    return icons[direction];
-  }, [direction]);
+    return icons[type];
+  }, [type]);
 
   return (
     <Listbox
@@ -31,7 +35,7 @@ const SizeInput = ({ disabled, direction, type = "height" }: Props) => {
         disabled ? "bg-slate-50" : ""
       }`}
       value={value}
-      onChange={setValue}
+      onChange={onChange}
       disabled={disabled}
     >
       <Listbox.Button

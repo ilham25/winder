@@ -9,6 +9,7 @@ export type ComponentType = {
   parentId?: string;
   content?: string;
   group?: ComponentGroup;
+  properties?: { [key: string]: string | number };
 };
 
 export type ComponentsState = {

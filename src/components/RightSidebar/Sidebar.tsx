@@ -9,15 +9,16 @@ type Props = {};
 
 const RightSidebar = (props: Props) => {
   const toolbar = useAppSelector((state) => state.toolbar);
+  const components = useAppSelector((state) => state.components);
 
-  const isCursor = useMemo(() => {
-    return toolbar.tool === "cursor";
-  }, [toolbar.tool]);
+  const isSelectedComponentAvailable: boolean = useMemo(() => {
+    return !!components.selectedId;
+  }, [components.selectedId]);
 
   return (
     <RightSidebarContainer className="flex flex-col">
       <ProjectSettings />
-      {!isCursor && <ToolSettings />}
+      {isSelectedComponentAvailable && <ToolSettings />}
     </RightSidebarContainer>
   );
 };

@@ -18,3 +18,31 @@ export const getTailwindSizing = (): string[] => {
 
   return templateArray;
 };
+
+export const getTailwindClassname = (properties: {
+  [key: string]: string | number;
+}): string => {
+  let templateString: string = "";
+  const propsToClass: { [key: string]: string } = {
+    height: "h-",
+    width: "w-",
+    marginHorizontal: "my-",
+    marginVertical: "mx-",
+    marginTop: "mt-",
+    marginBottom: "mb-",
+    marginLeft: "ml-",
+    marginRight: "mr-",
+    paddingHorizontal: "py-",
+    paddingVertical: "px-",
+    paddingTop: "pt-",
+    paddingBottop: "pb-",
+    paddingLeft: "pl-",
+    paddingRight: "pr-",
+  };
+
+  Object.keys(properties).forEach((key) => {
+    templateString += String(propsToClass[key] + properties[key]);
+  });
+
+  return templateString;
+};
